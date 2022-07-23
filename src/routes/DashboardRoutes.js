@@ -9,7 +9,7 @@ export const DashboardRoutes = ({coins, search, setSearch}) => {
 
     <BrowserRouter>
         <Routes>
-            <Route path="/criptoApp" element={<TableCoins coins={coins} search={search} setSearch={setSearch}/>}/>
+            <Route path="/cryptoApp" element={<TableCoins coins={coins} search={search} setSearch={setSearch}/>}/>
             <Route path='/CoinScreen/:id' element={<CoinScreen coins={coins} />}/>
             <Route path='*' element={<Page404 />}></Route>
         </Routes>
