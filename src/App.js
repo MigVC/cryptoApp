@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { DashboardRoutes } from './routes/DashboardRoutes';
+import React from 'react';
+import "./style/style.css"
 
-function App() {
+export const App = () =>  {
+
+  const [coins, setCoins] = useState([])
+  const [search, setSearch] = useState("")
+
+
+  const getData = async () => {
+    const res = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1")
+    setCoins(res.data)
+  }
+
+  useEffect(() => { 
+    getData()
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <div className='row'>
+        <DashboardRoutes coins={coins} search={search} setSearch={setSearch}/>
+        
+      </div>
+        
     </div>
-  );
+  ); 
 }
 
-export default App;

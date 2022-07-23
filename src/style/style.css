@@ -1,0 +1,52 @@
+.coinPic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(57, 56, 55);
+    padding: 2;
+}
+
+.imageCoin {
+    max-width: 5%;
+    max-height: 5%;
+    min-width: 5%;
+    min-height: 5%;
+}
+
+
+@media (max-width: 45rem){
+    .buscar{
+        width: 33rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    table{
+        width: 100%;
+    }
+    table tr{
+        display: flex;    
+        flex-direction: column;
+        border:1px solid black;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    table thead{
+        display: none;
+    }
+    table .index {
+        display: none;
+    }
+    table td[data-title]{
+        display: flex;
+    }
+    table td,th{
+        border: none;
+    }
+    table td[data-title]::before {
+        content: attr(data-title);
+        width: 9rem;
+        color: rgb(16, 239, 221);
+    }
+
+}
